@@ -25,7 +25,7 @@ pCC1FOS.cloning.rc.fa \
 -m 4 -header  -out m150606_042117_42131.pCC1FOS.blasr.out
 ```
 
-Next, a new version (with same name, but please put in a *NEW DIRECTORY*) is made of
+Next, a new version (with same name, but please put in a **NEW DIRECTORY**) is made of
 the original PacBio hdf5 files, but reads that span across the vector backbone are removed.
 These are identified by reads with matches to within 200 bp of the start/end of the vector and
 is done by editing the 'Regions' listing in the .bax files to edit high quality region
