@@ -117,7 +117,7 @@ for hd5FileName in baxFileNames:
         row = regions[row_n]
         holeNum = row[0]
         regionTypes = row[1]
-        # get ones that are not e coli and also not vector hits
+        # get ones that are selected vector hits
         if holeNum in vectorHits and regionTypes == 2:
             firstHit = vectorHits[holeNum]
             newEndHighQual = min(firstHit)
