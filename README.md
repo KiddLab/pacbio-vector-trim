@@ -1,1 +1,3 @@
 # pacbio-vector-trim
+
+setup
