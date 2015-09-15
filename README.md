@@ -8,7 +8,7 @@ of how to deal with this -- here is what we came up with that seems to work.
 
 
 ## Required Components
-Python: h5py, genutils
+Python: h5py
 
 Other: BLASR, access to SMRTPORTAL or other installation of assembly pipeline
 

@@ -2,9 +2,22 @@ import os
 import h5py
 import sys
 import glob
-import genutils
+import subprocess
 
 from optparse import  OptionParser
+
+
+###############################################################################
+# Helper function to run commands and handle return values
+def runCMD(cmd):
+    val = subprocess.Popen(cmd, shell=True).wait()
+    if val == 0:
+        pass
+    else:
+        print 'command failed'
+        print cmd
+        sys.exit(1)
+###############################################################################
 
 ###############################################################################
 USAGE = """
@@ -13,7 +26,7 @@ python trim-vector-pacbio-hdf5.py --blasr <output of blasr mapping to vector> --
                                   --newdir <directory for new hd5files>
 
   --blasr is output of blasr mapping of reads to vector backbone sequence.  Map with -m 4 -header
-  --bectorlen is length of the vector sequence [default 8139]
+  --vectorlen is length of the vector sequence [default 8139]
 
 Output is in bed format.
 """
@@ -62,7 +75,7 @@ newBasFileName = options.newDir + fileName
 print 'New bas file:',newBasFileName
 cmd = 'cp %s %s' % (originalBasFileNames[0],newBasFileName)
 print cmd
-genutils.runCMD(cmd)
+runCMD(cmd)
 
 #copy over baxFiles
 baxFileNames = []
@@ -72,7 +85,7 @@ for fileName in originalBaxFileNames:
 	baxFileNames.append(newName)
 	cmd = 'cp %s %s' % (fileName,newName)
 	print cmd
-	genutils.runCMD(cmd)
+	runCMD(cmd)
 	
 #read in vector hits
 vectorHits = {}
